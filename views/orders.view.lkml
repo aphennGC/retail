@@ -9,12 +9,12 @@ view: orders {
   }
   dimension_group: created {
     type: time
-    timeframes: [raw, time, date, week, month, quarter, year]
+    timeframes: [raw, time, date,day_of_week, week,week_of_year, month,month_name, quarter, year]
     sql: ${TABLE}.created_at ;;
   }
   dimension_group: delivered {
     type: time
-    timeframes: [raw, time, date, week, month, quarter, year]
+    timeframes: [raw, time, date,day_of_week, week,week_of_year, month,month_name, quarter, year]
     sql: ${TABLE}.delivered_at ;;
   }
   dimension: gender {
@@ -22,17 +22,18 @@ view: orders {
     sql: ${TABLE}.gender ;;
   }
   dimension: num_of_item {
+    label: "Number of Items per Order"
     type: number
     sql: ${TABLE}.num_of_item ;;
   }
   dimension_group: returned {
     type: time
-    timeframes: [raw, time, date, week, month, quarter, year]
+    timeframes: [raw, time, date,day_of_week, week,week_of_year, month,month_name, quarter, year]
     sql: ${TABLE}.returned_at ;;
   }
   dimension_group: shipped {
     type: time
-    timeframes: [raw, time, date, week, month, quarter, year]
+    timeframes: [raw, time, date, day_of_week, week, week_of_year, month, month_name, quarter, year]
     sql: ${TABLE}.shipped_at ;;
   }
   dimension: status {
@@ -45,7 +46,22 @@ view: orders {
     sql: ${TABLE}.user_id ;;
   }
   measure: count {
+    label: "Total Orders"
     type: count
     drill_fields: [order_id, users.last_name, users.id, users.first_name, order_items.count]
+    description: "Total number of Orders"
   }
+
+  ###CUSTOM DIMENSIONS###
+  dimension: gender_icon {
+    type: string
+    sql:
+    CASE
+    WHEN ${gender} = 'F' THEN '♀'
+    ELSE '♂'
+    END;;
+  }
+
+  ###CUSTOM MEASURES###
+
 }

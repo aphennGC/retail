@@ -58,4 +58,19 @@ view: inventory_items {
     type: count
     drill_fields: [id, product_name, products.name, products.id, order_items.count]
   }
+  ###CUSTOM MEASURES###
+  measure: total_inventory_cost {
+    label: "Total Inventory Costs"
+    type: sum
+    sql: ${cost} ;;
+    value_format: "$#,##0.00"
+    description: "Sum of the Costs of all Items bought"
+  }
+  measure: average_inventory_cost {
+    label: "AVG Inventory Costs"
+    type: average
+    sql: ${cost} ;;
+    value_format: "$#,##0.00"
+    description: "Average Costs for bought Items"
+  }
 }
