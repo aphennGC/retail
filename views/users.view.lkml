@@ -12,10 +12,48 @@ view: users {
     sql: ${TABLE}.age ;;
   }
   dimension: city {
+    group_label: "Location Hierarchy"
     type: string
     sql: ${TABLE}.city ;;
+    action: {
+      label: "Email Customer Churn Promotion"
+      url: "https://"
+      icon_url: "https://sendgrid.com/favicon.ico"
+      param: {
+        name: "some_auth_code"
+        value: "abc123456"
+      }
+      form_param: {
+        name: "Subject"
+        required: yes
+        default: "🛍️ Last Chance! 50% off in {{ value }}"
+      }
+      form_param: {
+        name: "Body"
+        type: textarea
+        required: yes
+        default:
+        "🌟 Special Offer Just for You! 🌟
+
+        Dear Valued Customer,
+
+        We've noticed you haven't been around in a while, and we're missing your presence! To show how much we value you, we've crafted an exclusive offer that's just too good to pass up.
+        🔥 LIMITED TIME ONLY: Enjoy a special 20% discount on your next purchase! Use code: WELCOMEBACK20 at checkout.
+        But wait, there's more! We're also giving you early access to our newest products and a complimentary premium service upgrade for the next month.
+        We're committed to ensuring your experience with us is nothing short of exceptional. Your satisfaction is our top priority, and we're here to support you every step of the way.
+        Don't miss out on this opportunity to rediscover what you've been missing. This special offer is valid for a limited time, so act fast!
+
+        Warm regards,
+        The 'The Look' Team
+
+        P.S. We're always here to listen. If there's anything specific you're looking for or feedback you'd like to share, please don't hesitate to reach out. Your voice matters to us!
+        🛍️ Rediscover the Magic at 'The Look' – Your Satisfaction, Our Promise! 🌈"
+      }
+    }
   }
+
   dimension: country {
+    group_label: "Location Hierarchy"
     type: string
     map_layer_name: countries
     sql: ${TABLE}.country ;;
@@ -31,6 +69,7 @@ view: users {
   dimension: email {
     type: string
     sql: ${TABLE}.email ;;
+
   }
   dimension: first_name {
     type: string
@@ -45,22 +84,27 @@ view: users {
     sql: ${TABLE}.last_name ;;
   }
   dimension: latitude {
+    hidden: yes
     type: number
     sql: ${TABLE}.latitude ;;
   }
   dimension: longitude {
+    hidden: yes
     type: number
     sql: ${TABLE}.longitude ;;
   }
   dimension: postal_code {
+    hidden: yes
     type: string
     sql: ${TABLE}.postal_code ;;
   }
   dimension: state {
+    group_label: "Location Hierarchy"
     type: string
     sql: ${TABLE}.state ;;
   }
   dimension: street_address {
+    group_label: "Location Hierarchy"
     type: string
     sql: ${TABLE}.street_address ;;
   }
@@ -79,6 +123,12 @@ view: users {
     tiers: [15,25,35,50,65]
     style: integer # the default value, could be excluded
     sql: ${age};;
+  }
+
+  dimension: full_name {
+    label: "Customer Name"
+    type:  string
+    sql: CONCAT(${first_name},' ',${last_name}) ;;
   }
 
   dimension: country_flag{
@@ -128,6 +178,15 @@ view: users {
     sql_longitude: ${longitude} ;;
   }
 
+dimension: zip {
+  group_label: "Location Hierarchy"
+  label: "ZIP"
+  description: "User Address Postcode"
+  type: zipcode
+  sql: ${postal_code};;
+  drill_fields: [city]
+}
+
 ###CUSTOM MEASURES###
   measure: total_age {
     type: sum
@@ -150,5 +209,4 @@ view: users {
   order_items.count
   ]
   }
-
 }
