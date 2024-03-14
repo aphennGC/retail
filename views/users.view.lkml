@@ -173,6 +173,7 @@ view: users {
 ##source: https://cloud.google.com/looker/docs/reference/param-dimension-filter-parameter-types#location
   dimension: location {
     label: "Customer Location"
+    hidden: yes
     type: location
     sql_latitude: ${latitude} ;;
     sql_longitude: ${longitude} ;;
@@ -185,7 +186,36 @@ dimension: zip {
   type: zipcode
   sql: ${postal_code};;
   drill_fields: [city]
-}
+  }
+
+  dimension: approx_latitude {
+    hidden: yes
+    label: "Approx Latitude"
+    type: number
+    sql: round(${TABLE}.latitude,1) ;;
+  }
+
+  dimension: approx_longitude {
+    hidden:  yes
+    label: "Approx Longitude"
+    type: number
+    sql:round(${TABLE}.longitude,1) ;;
+  }
+
+
+  dimension: approx_location {
+    group_label: "Location Hierarchy"
+    label: "Approx Customer Location"
+    type: location
+    drill_fields: [location]
+    sql_latitude: ${approx_latitude} ;;
+    sql_longitude: ${approx_longitude} ;;
+    link: {
+      label: "Google Directions from {{ distribution_centers.name._value }}"
+      url: "{% if distribution_centers.location._in_query %}https://www.google.com/maps/dir/'{{ distribution_centers.latitude._value }},{{ distribution_centers.longitude._value }}'/'{{ approx_latitude._value }},{{ approx_longitude._value }}'{% endif %}"
+      icon_url: "http://www.google.com/s2/favicons?domain=www.google.com"
+    }
+    }
 
 ###CUSTOM MEASURES###
   measure: total_age {
