@@ -24,6 +24,13 @@ view: events {
     type: string
     sql: ${TABLE}.event_type ;;
   }
+#cancel - canceled purchase
+#cart - added item to cart
+#department - chooses specific department
+#home - goes on homepage
+#product - looks at product
+#purchase - buys product
+
   dimension: ip_address {
     type: string
     sql: ${TABLE}.ip_address ;;
@@ -60,5 +67,21 @@ view: events {
   measure: count {
     type: count
     drill_fields: [id, users.last_name, users.id, users.first_name]
+  }
+
+###CUSTOM DIMENSIONS###
+
+
+###CUSTOM MEASURES###
+  measure: unique_visitors {
+    label: "Unique Visitors"
+    type: count_distinct
+    description: "Uniqueness determined by IP Address and User Login"
+    view_label: "Visitors"
+    sql: ${ip_address} ;;
+    drill_fields: [visitors*]
+  }
+  set: visitors {
+    fields: [ip_address, session_id, browser, user_id, count]
   }
 }
