@@ -58,40 +58,39 @@ view: products {
   }
 
   ###CUSTOM DIMENSIONS###
-  dimension: category_icon {
-    type:  string
-    sql:
-    CASE
-    WHEN ${category} = 'Intimates' THEN '🩲'
-    WHEN ${category} = 'Jeans' THEN '👖'
-    WHEN ${category} = 'Tops & Tees' THEN '👕'
-    WHEN ${category} = 'Fashion Hoodies & Sweatshirts' THEN '💦'
-    WHEN ${category} = 'Swim' THEN '🏊'
-    WHEN ${category} = 'Shorts' THEN '🩳'
-    WHEN ${category} = 'Sleep & Lounge' THEN '😴'
-    WHEN ${category} = 'Sweaters' THEN '💧'
-    WHEN ${category} = 'Accessories' THEN '🎀'
-    WHEN ${category} = 'Active' THEN '🏋'
-    WHEN ${category} = 'Outerwear & Coats' THEN '🧥'
-    WHEN ${category} = 'Underwear' THEN '👙'
-    WHEN ${category} = 'Pants' THEN '🧍'
-    WHEN ${category} = 'Socks' THEN '🧦'
-    WHEN ${category} = 'Dresses' THEN '👗'
-    WHEN ${category} = 'Maternity' THEN '🫄'
-    WHEN ${category} = 'Suits & Sport Coats' THEN '🏅'
-    WHEN ${category} = 'Plus' THEN '➕'
-    WHEN ${category} = 'Socks & Hosiery' THEN '👟'
-    WHEN ${category} = 'Pants & Capris' THEN '⛱'
-    WHEN ${category} = 'Blazers & Jackets' THEN '🌆'
-    WHEN ${category} = 'Leggings' THEN '🦵'
-    WHEN ${category} = 'Skirts' THEN '🥻'
-    WHEN ${category} = 'Suits' THEN '🕴'
-    WHEN ${category} = 'Jumpsuits & Rompers' THEN '🦘'
-    WHEN ${category} = 'Clothing Sets' THEN '📐'
-    ELSE ❗
-    END
-    ;;
-  }
+  #dimension: category_icon {
+    #type:  string
+    #sql:
+    #CASE
+    #WHEN ${category} = 'Intimates' THEN '🩲'
+    #WHEN ${category} = 'Jeans' THEN '👖'
+    #WHEN ${category} = 'Tops & Tees' THEN '👕'
+    #WHEN ${category} = 'Fashion Hoodies & Sweatshirts' THEN '💦'
+    #WHEN ${category} = 'Swim' THEN '🏊'
+    #WHEN ${category} = 'Shorts' THEN '🩳'
+    #WHEN ${category} = 'Sleep & Lounge' THEN '😴'
+    #WHEN ${category} = 'Sweaters' THEN '💧'
+    #WHEN ${category} = 'Accessories' THEN '🎀'
+    #WHEN ${category} = 'Active' THEN '🏋'
+    #WHEN ${category} = 'Outerwear & Coats' THEN '🧥'
+    #WHEN ${category} = 'Underwear' THEN '👙'
+    #WHEN ${category} = 'Pants' THEN '🧍'
+    #WHEN ${category} = 'Socks' THEN '🧦'
+    #WHEN ${category} = 'Dresses' THEN '👗'
+    #WHEN ${category} = 'Maternity' THEN '🫄'
+    #WHEN ${category} = 'Suits & Sport Coats' THEN '🏅'
+    #WHEN ${category} = 'Plus' THEN '➕'
+    #WHEN ${category} = 'Socks & Hosiery' THEN '👟'
+    #WHEN ${category} = 'Pants & Capris' THEN '⛱'
+    #WHEN ${category} = 'Blazers & Jackets' THEN '🌆'
+    #WHEN ${category} = 'Leggings' THEN '🦵'
+    #WHEN ${category} = 'Skirts' THEN '🥻'
+    #WHEN ${category} = 'Suits' THEN '🕴'
+    #WHEN ${category} = 'Jumpsuits & Rompers' THEN '🦘'
+    #WHEN ${category} = 'Clothing Sets' THEN '📐'
+    #ELSE ❗
+    #END;;
+  #}
 
   ###CUSTOM MEASURES###
   measure: total_cost {
