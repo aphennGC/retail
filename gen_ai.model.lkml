@@ -9,10 +9,10 @@ include: "/views/*.view.lkml"                # include all views in the views/ f
 #
  explore: order_items {
   label: "Retail 🛍"
-  access_filter: {
-    field: users.country
-    user_attribute: country
-  }
+ access_filter: {
+   field: users.country
+  user_attribute: country
+ }
    join: orders {
     relationship: many_to_one
      sql_on: ${orders.order_id} = ${order_items.order_id} ;;
