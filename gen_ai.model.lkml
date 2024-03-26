@@ -23,8 +23,8 @@ include: "/views/*.view.lkml"                # include all views in the views/ f
 #}
 
 access_filter: {
-field: inventory_items.product_brand #fully qualified name
-user_attribute: brand_name
+field: users.country #fully qualified name
+user_attribute: country
 }
    join: orders {
     relationship: many_to_one
