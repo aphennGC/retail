@@ -9,10 +9,23 @@ include: "/views/*.view.lkml"                # include all views in the views/ f
 #
  explore: order_items {
   label: "Retail 🛍"
-  access_filter: {
-    field: inventory_items.product_brand
-    user_attribute: brand_name
-  }
+
+#sql_always_where: not ${inventory_items.is_sold} ;;
+#sql_always_having: ${total_sale_price} >= 100;;
+
+#always_filter: {
+#filters: [inventory_items.is_sold: "No"]
+#}
+
+#conditionally_filter: {
+  #filters: [inventory_items.is_sold: "No"]
+  #unless: [created_date]
+#}
+
+access_filter: {
+field: inventory_items.product_brand #fully qualified name
+user_attribute: brand_name
+}
    join: orders {
     relationship: many_to_one
      sql_on: ${orders.order_id} = ${order_items.order_id} ;;
