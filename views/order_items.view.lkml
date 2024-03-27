@@ -2,15 +2,15 @@ view: order_items {
   sql_table_name: `lookercoredemoangiephenn.trial_dataset.order_items` ;;
   drill_fields: [id]
 
+#dynamic dimension
 #parameters:
-
 parameter: date_granularity {
   label: "Date Granularity Selector"
   type:  unquoted #could be string, date etc
   default_value: "created_month" #if I dont choose any value - this will be selected automatically
   allowed_value: {
     value: "created_date"
-    label: "Date" #zhis is what is displayed on the object
+    label: "Date" #this is what is displayed on the object
   }
   allowed_value: {
     value: "created_week" #when I choose Week my parameter excepts value created_week
@@ -45,10 +45,10 @@ dimension: dynamic_time_frame {
     default_value: "total_sale_price" #if I dont choose any value - this will be selected automatically
     allowed_value: {
       value: "total_sale_price"
-      label: "Total Sales" #zhis is what is displayed on the object
+      label: "Total Sales" #this is what is displayed on the object
     }
     allowed_value: {
-      value: "average_sale_price" #when I choose Week my parameter excepts value created_week
+      value: "average_sale_price" #when I choose Average Sales my parameter excepts value average_sale_price
       label: "Average Sales"
     }
     allowed_value: {
@@ -63,7 +63,6 @@ dimension: dynamic_time_frame {
     label_from_parameter: metric_selector
     type: number
     value_format: "[<1000]#,##0.0;[<1000000]#,##0.0,\" K\";#,##0.0,,\" M\""
-    #liquid = ruby based language (when my user selects created_date show created_date, if ....
     sql:
       {% if metric_selector._parameter_value == 'total_sale_price' %} ${total_sale_price}
       {% elsif metric_selector._parameter_value == 'average_sale_price' %} ${average_sale_price}
