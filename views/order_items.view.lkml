@@ -2,6 +2,40 @@ view: order_items {
   sql_table_name: `lookercoredemoangiephenn.trial_dataset.order_items` ;;
   drill_fields: [id]
 
+#parameters:
+
+parameter: date_granularity {
+  label: "Date Granularity Selector"
+  type:  unquoted #could be string, date etc
+  default_value: "created_month" #if I dont choose any value - this will be selected automatically
+  allowed_value: {
+    value: "created_date"
+    label: "Date" #zhis is what is displayed on the object
+  }
+  allowed_value: {
+    value: "created_week" #when I choose Week my parameter excepts value created_week
+    label: "Week"
+  }
+  allowed_value: {
+    value: "created_month"
+    label: "Month"
+  }
+  hidden: no
+}
+
+#dimension for my parameter
+dimension: dynamic_time_frame {
+  label: "Date Granularity"
+  label_from_parameter: date_granularity
+  type: string
+  sql:
+  {% if date_granularity._parameter_value == 'created_date' %} ${created_date}
+  {% elsif date_granularity._parameter_value == 'created_date' %} ${created_week}
+  {% else %} ${created_month}
+  {% endif %};;
+  hidden: no
+}
+
   dimension: id {
     primary_key: yes
     type: number
