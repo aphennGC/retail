@@ -28,6 +28,7 @@ dimension: dynamic_time_frame {
   label: "Date Granularity"
   label_from_parameter: date_granularity
   type: string
+  #liquid = ruby based language (when my user selects created_date show created_date, if ....
   sql:
   {% if date_granularity._parameter_value == 'created_date' %} ${created_date}
   {% elsif date_granularity._parameter_value == 'created_date' %} ${created_week}
@@ -35,6 +36,44 @@ dimension: dynamic_time_frame {
   {% endif %};;
   hidden: no
 }
+
+####dynamic measure
+#parameter
+  parameter: metric_selector {
+    label: "Metric Selector"
+    type:  unquoted #could be string, date etc
+    default_value: "total_sale_price" #if I dont choose any value - this will be selected automatically
+    allowed_value: {
+      value: "total_sale_price"
+      label: "Total Sales" #zhis is what is displayed on the object
+    }
+    allowed_value: {
+      value: "AVG Sale Price" #when I choose Week my parameter excepts value created_week
+      label: "Average Sales"
+    }
+    allowed_value: {
+      value: "cumulative_total_sales"
+      label: "Cumulative Sales"
+    }
+    hidden: no
+  }
+#measure for parameter
+  measure: dynamic_metric {
+    label: "Dynamic Metric"
+    label_from_parameter: metric_selector
+    type: number
+    value_format: "[<1000]#,##0.0;[<1000000]#,##0.0,\" K\";#,##0.0,,\" M\""
+    #liquid = ruby based language (when my user selects created_date show created_date, if ....
+    sql:
+      {% if metric_selector._parameter_value == 'total_sale_price' %} ${total_sale_price}
+      {% elsif metric_selector._parameter_value == 'AVG Sale Price' %} ${average_sale_price}
+      {% elsif metric_selector._parameter_value == 'cumulative_total_sales' %} ${cumulative_total_sales}
+      {% else %} ${total_sale_price}
+      {% endif %};;
+    hidden: no
+  }
+
+
 
   dimension: id {
     primary_key: yes
