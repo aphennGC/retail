@@ -52,8 +52,8 @@ dimension: dynamic_time_frame {
       label: "Average Sales"
     }
     allowed_value: {
-      value: "cumulative_total_sales"
-      label: "Cumulative Sales"
+      value: "total_gross_revenue"
+      label: "Total Gross Sales"
     }
     hidden: no
   }
@@ -67,7 +67,7 @@ dimension: dynamic_time_frame {
     sql:
       {% if metric_selector._parameter_value == 'total_sale_price' %} ${total_sale_price}
       {% elsif metric_selector._parameter_value == 'average_sale_price' %} ${average_sale_price}
-      {% elsif metric_selector._parameter_value == 'cumulative_total_sales' %} ${cumulative_total_sales}
+      {% elsif metric_selector._parameter_value == 'total_gross_revenue' %} ${total_gross_revenue}
       {% else %} ${total_sale_price}
       {% endif %};;
     hidden: no
