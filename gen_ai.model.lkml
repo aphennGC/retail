@@ -23,7 +23,7 @@ include: "/views/*.view.lkml"                # include all views in the views/ f
 #}
 
 access_filter: {
-field: users.country #fully qualified name
+field: users.country
 user_attribute: country
 }
    join: orders {
