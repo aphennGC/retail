@@ -48,7 +48,7 @@ dimension: dynamic_time_frame {
       label: "Total Sales" #zhis is what is displayed on the object
     }
     allowed_value: {
-      value: "AVG Sale Price" #when I choose Week my parameter excepts value created_week
+      value: "average_sale_price" #when I choose Week my parameter excepts value created_week
       label: "Average Sales"
     }
     allowed_value: {
@@ -66,7 +66,7 @@ dimension: dynamic_time_frame {
     #liquid = ruby based language (when my user selects created_date show created_date, if ....
     sql:
       {% if metric_selector._parameter_value == 'total_sale_price' %} ${total_sale_price}
-      {% elsif metric_selector._parameter_value == 'AVG Sale Price' %} ${average_sale_price}
+      {% elsif metric_selector._parameter_value == 'average_sale_price' %} ${average_sale_price}
       {% elsif metric_selector._parameter_value == 'cumulative_total_sales' %} ${cumulative_total_sales}
       {% else %} ${total_sale_price}
       {% endif %};;
