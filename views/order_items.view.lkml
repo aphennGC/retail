@@ -25,7 +25,7 @@ parameter: date_granularity {
 
 #dimension for my parameter
 dimension: dynamic_time_frame {
-  label: "Date Granularity"
+  label: "Date Granularity 🧨"
   label_from_parameter: date_granularity
   type: string
   #liquid = ruby based language (when my user selects created_date show created_date, if ....
@@ -59,7 +59,7 @@ dimension: dynamic_time_frame {
   }
 #measure for parameter
   measure: dynamic_metric {
-    label: "Dynamic Metric"
+    label: "Dynamic Metric 🧨"
     label_from_parameter: metric_selector
     type: number
     value_format: "[<1000]#,##0.0;[<1000000]#,##0.0,\" K\";#,##0.0,,\" M\""
