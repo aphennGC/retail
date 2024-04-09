@@ -78,8 +78,8 @@ dimension: dynamic_time_frame {
     type:  unquoted #could be string, date etc
     default_value: "created_year" #if I dont choose any value - this will be selected automatically
     allowed_value: {
-      value: "created_date"
-      label: "Reporting Date" #this is what is displayed on the object
+      value: "created_year"
+      label: "Reporting Year" #this is what is displayed on the object
     }
     hidden: no
   }
