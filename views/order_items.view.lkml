@@ -76,10 +76,18 @@ dimension: dynamic_time_frame {
   parameter: reporting_year {
     label: "Reporting Year Selector"
     type:  date #could be string, date etc
-    default_value: "created_year" #if I dont choose any value - this will be selected automatically
+    default_value: "2022" #if I dont choose any value - this will be selected automatically
     allowed_value: {
-      value: "created_year"
-      label: "Reporting Year" #this is what is displayed on the object
+      value: "2022"
+      label: "2022" #this is what is displayed on the object
+    }
+    allowed_value: {
+      value: "2023" #when I choose Average Sales my parameter excepts value average_sale_price
+      label: "Last Year"
+    }
+    allowed_value: {
+      value: "2024"
+      label: "Current year"
     }
     hidden: no
   }
