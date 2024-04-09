@@ -99,12 +99,12 @@ dimension: dynamic_time_frame {
     #liquid = ruby based language (when my user selects created_date show created_date, if ....
     sql:
 {% if reporting_year._parameter_value == '2022' %}
-  ${created_date} BETWEEN '2022-01-01' AND '2022-12-31'
+  ${created_date} BETWEEN '01-01-2022' AND '31-12-2022'
 {% elsif reporting_year._parameter_value == '2023' %}
-  ${created_date} BETWEEN '2023-01-01' AND '2023-12-31'
+  ${created_date} BETWEEN '01-01-2023' AND '31-12-2023'
 {% elsif reporting_year._parameter_value == '2024' %}
-  ${created_date} BETWEEN '2024-01-01' AND '2024-12-31'
-{% else %} ${created_date} < '2022-01-01'
+  ${created_date} BETWEEN '01-01-2024' AND '31-12-2024'
+{% else %} ${created_date} < '01-01-2022'
 {% endif %}
 ;;
     hidden: no
