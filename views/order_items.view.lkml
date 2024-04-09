@@ -72,26 +72,6 @@ dimension: dynamic_time_frame {
     hidden: no
   }
 
-#test DB cascading filter#####
-  parameter: reporting_year {
-    label: "Reporting Year Selector"
-    type:  date #could be string, date etc
-    default_value: "created_year" #if I dont choose any value - this will be selected automatically
-    allowed_value: {
-      value: "2022"
-      label: "Two Years Ago" #this is what is displayed on the object
-    }
-    allowed_value: {
-      value: "2023" #when I choose Average Sales my parameter excepts value average_sale_price
-      label: "Last Year"
-    }
-    allowed_value: {
-      value: "2024"
-      label: "Current year"
-    }
-    hidden: no
-  }
-
   dimension: id {
     primary_key: yes
     type: number
