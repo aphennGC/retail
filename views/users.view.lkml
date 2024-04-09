@@ -11,7 +11,7 @@ view: users {
     type: number
     sql: ${TABLE}.age ;;
   }
-  dimension: city {
+   dimension: city {
     group_label: "Location Hierarchy"
     type: string
     sql: ${TABLE}.city ;;
@@ -51,13 +51,18 @@ view: users {
       }
     }
   }
-
   dimension: country {
     group_label: "Location Hierarchy"
     type: string
     map_layer_name: countries
     sql: ${TABLE}.country ;;
   }
+
+filter: country_filter {
+  type: string
+  suggest_dimension: country
+}
+
 
   # Dates and timestamps can be represented in Looker using a dimension group of type: time.
   # Looker converts dates and timestamps to the specified timeframes within the dimension group.
