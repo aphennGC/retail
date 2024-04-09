@@ -75,7 +75,7 @@ dimension: dynamic_time_frame {
 #test DB cascading filter#####
   parameter: reporting_year {
     label: "Reporting Year Selector"
-    type:  unquoted #could be string, date etc
+    type:  date #could be string, date etc
     default_value: "created_year" #if I dont choose any value - this will be selected automatically
     allowed_value: {
       value: "created_year"
