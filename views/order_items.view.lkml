@@ -76,7 +76,7 @@ dimension: dynamic_time_frame {
   parameter: reporting_year {
     label: "Reporting Year Selector"
     type:  date #could be string, date etc
-    default_value: "2022" #if I dont choose any value - this will be selected automatically
+    default_value: "created_year" #if I dont choose any value - this will be selected automatically
     allowed_value: {
       value: "2022"
       label: "2022" #this is what is displayed on the object
