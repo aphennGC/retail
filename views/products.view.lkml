@@ -130,7 +130,8 @@ view: products {
   distribution_centers.name,
   distribution_centers.id,
   order_items.count,
-  inventory_items.count
+  inventory_items.count,
+  department
   ]
   }
 
