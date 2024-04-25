@@ -21,6 +21,7 @@ view: products {
   dimension: category {
     type: string
     sql: ${TABLE}.category ;;
+    description: "AHHHHHHH"
   }
   dimension: cost {
     type: number
