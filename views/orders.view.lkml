@@ -50,12 +50,13 @@ view: orders {
     type: count
     drill_fields: [products.category, products.department]
     description: "Total number of Orders"
-    html:
+    html: """
     <ul>
-    <li> count: {{ value }} </li>
-    <li> SrcName: {{ _field._name }} </li>
-    <li>Drill Fields: order_id, users.last_name, users.id, users.first_name, order_items.count</li>
-    </ul> ;;
+    <li>Orders Count: {{ value }}</li>
+    <li>Category: {{ products.category }}</li>
+    <li>Department: {{ products.department }}</li>
+    </ul>
+    """ ;;
   }
 
   ###CUSTOM DIMENSIONS###
