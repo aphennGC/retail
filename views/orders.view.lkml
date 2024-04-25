@@ -48,12 +48,13 @@ view: orders {
   measure: count {
     label: "Total Orders"
     type: count
-    drill_fields: [order_id, users.last_name, users.id, users.first_name, order_items.count]
+    drill_fields: [products.category, products.department]
     description: "Total number of Orders"
     html:
     <ul>
     <li> count: {{ value }} </li>
     <li> SrcName: {{ _field._name }} </li>
+    <li>Drill Fields: order_id, users.last_name, users.id, users.first_name, order_items.count</li>
     </ul> ;;
   }
 
