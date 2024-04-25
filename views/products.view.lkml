@@ -115,12 +115,6 @@ view: products {
     description: "Baseline price before discounts and promotions etc"
   }
 
-  ####DB Test#####
-  dimension: concat_Cat_Dep {
-    label: "Test"
-    type: string
-    sql:CONCAT(${category},'|',${department}  ;;
-    }
 
   # ----- Sets of fields for drilling ------
   set: detail {

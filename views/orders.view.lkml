@@ -50,6 +50,11 @@ view: orders {
     type: count
     drill_fields: [order_id, users.last_name, users.id, users.first_name, order_items.count]
     description: "Total number of Orders"
+    html:
+    <ul>
+    <li> count: {{ value }} </li>
+    <li> SrcName: {{ _field._name }} </li>
+    </ul> ;;
   }
 
   ###CUSTOM DIMENSIONS###
@@ -61,7 +66,4 @@ view: orders {
     ELSE '♂'
     END;;
   }
-
-  ###CUSTOM MEASURES###
-
 }
