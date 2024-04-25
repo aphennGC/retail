@@ -22,6 +22,14 @@ view: products {
     type: string
     sql: ${TABLE}.category ;;
     description: "AHHHHHHH"
+    html:
+    {% if value == 'Jeans' %}
+    <span style="color: black; background-color: lightgreen;">{{ value }}</span>
+    {% elsif value == 'Intimates' %}
+    <span style="color: black; background-color: orange;">{{ value }}</span>
+    {% else %}
+    <span style="color: white; background-color: red;">{{ value }}</span>
+    {% endif %};;
   }
   dimension: cost {
     type: number
