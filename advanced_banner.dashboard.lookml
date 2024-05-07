@@ -1,5 +1,5 @@
-- dashboard: advanced_header
-  title: advanced_header
+- dashboard: advanced_banner
+  title: advanced_banner
   layout: newspaper
   preferred_viewer: dashboards-next
   description: ''
