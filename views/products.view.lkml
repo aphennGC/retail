@@ -23,14 +23,15 @@ view: products {
     sql: ${TABLE}.category ;;
     description: "AHHHHHHH"
     html:
-    {% if value == 'Jeans' %}
-    <span style="color: black; background-color: lightgreen;">{{ value }}</span>
-    {% elsif value == 'Intimates' %}
-    <span style="color: black; background-color: orange;">{{ value }}</span>
-    {% else %}
-    <span style="color: white; background-color: red;">{{ value }}</span>
-    {% endif %};;
+      {% if value == 'Jeans' %}
+      <span style="color: #333; background-color: white;">{{ value }}</span>
+      {% elsif value == 'Intimates' %}
+      <span style="color: #666; background-color: white;">{{ value }}</span>
+      {% else %}
+      <span style="color: #999; background-color: white;">{{ value }}</span>
+      {% endif %};;
   }
+
   dimension: cost {
     type: number
     sql: ${TABLE}.cost ;;
