@@ -24,13 +24,22 @@ view: products {
     description: "AHHHHHHH"
     html:
       {% if value == 'Jeans' %}
-      <span style="color: #333; background-color: white;">{{ value }}</span>
+      <span style="color: #333;">{{ value }}</span>
       {% elsif value == 'Intimates' %}
-      <span style="color: #666; background-color: white;">{{ value }}</span>
+      <span style="color: #666;">{{ value }}</span>
       {% else %}
-      <span style="color: #999; background-color: white;">{{ value }}</span>
+      <span style="color: #999;">{{ value }}</span>
       {% endif %};;
   }
+
+  ###with background color
+      # {% if value == 'Jeans' %}
+      #<span style="color: #333; background-color: white;">{{ value }}</span>
+      #{% elsif value == 'Intimates' %}
+      #<span style="color: #666; background-color: white;">{{ value }}</span>
+      #{% else %}
+      #<span style="color: #999; background-color: white;">{{ value }}</span>
+      #{% endif %};;
 
   dimension: cost {
     type: number
