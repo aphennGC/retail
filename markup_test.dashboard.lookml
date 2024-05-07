@@ -5,6 +5,16 @@
   description: ''
   preferred_slug: iK8YJQvjPNZEXvuRlA0V3q
   elements:
+  - name: 'test'
+    type: text
+    title_text: 'markup test'
+    subtitle_text: 'lets see how this works'
+    body_text: ''
+    rich_content_json: '{"format":"slate"}'
+    row: 0
+    col: 0
+    width: 24
+    height: 2
   - title: Number of Order Items by Category from different Traffic Sources
     name: Number of Order Items by Category from different Traffic Sources
     model: gen_ai
