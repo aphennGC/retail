@@ -1,5 +1,5 @@
-- dashboard: filled_buttons
-  title: filled_buttons
+- dashboard: advanced_header
+  title: advanced_header
   layout: newspaper
   preferred_viewer: dashboards-next
   description: ''
