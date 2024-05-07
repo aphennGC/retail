@@ -5,33 +5,24 @@
   description: ''
   preferred_slug: iK8YJQvjPNZEXvuRlA0V3q
   elements:
-  - name: " (3)"
+  - name: " (4)"
     type: text
     title_text: ''
     subtitle_text: ''
-    body_text: "<div style=\"text-align: center; display: inline-block;\">\n<a style=\"\
-      \n\tcolor: #4285F4;\n    border: solid 1px #4285F4;\n    float: left;\n    font-weight:\
-      \ 400;\n    text-align: center;\n    vertical-align: middle;\n    cursor: pointer;\n\
-      \    user-select: none;\n    padding: 10px;\n    margin: 5px;\n    font-size:\
-      \ 1rem;\n    line-height: 1.5;\n    border-radius: 5px;\"\n    href=\"#\">\n\
-      \    This is a button!\n</a>\n\n<a style=\"\n\tcolor: #EA4335;\n    border:\
-      \ solid 1px #EA4335;\n    float: left;\n    font-weight: 400;\n    text-align:\
-      \ center;\n    vertical-align: middle;\n    cursor: pointer;\n    user-select:\
-      \ none;\n    padding: 10px;\n    margin: 5px;\n    font-size: 1rem;\n    line-height:\
-      \ 1.5;\n    border-radius: 5px;\"\n    href=\"#\">\n    This is a button!\n\
-      </a>\n\n<a style=\"\n\tcolor: #FBBC04;\n    border: solid 1px #FBBC04;\n   \
-      \ float: left;\n    font-weight: 400;\n    text-align: center;\n    vertical-align:\
-      \ middle;\n    cursor: pointer;\n    user-select: none;\n    padding: 10px;\n\
-      \    margin: 5px;\n    font-size: 1rem;\n    line-height: 1.5;\n    border-radius:\
-      \ 5px;\"\n    href=\"#\">\n    This is a button!\n</a>\n\n<a style=\"\n\tcolor:\
-      \ #34A852;\n    border: solid 1px #34A852;\n    float: left;\n    font-weight:\
-      \ 400;\n    text-align: center;\n    vertical-align: middle;\n    cursor: pointer;\n\
-      \    user-select: none;\n    padding: 10px;\n    margin: 5px;\n    font-size:\
-      \ 1rem;\n    line-height: 1.5;\n    border-radius: 5px;\"\n    href=\"#\">\n\
-      \    This is a button!\n</a></div>"
-    row: 6
+    body_text: |-
+      <div style="border-radius: 5px; padding: 5px 10px; background: #412399; height: 60px; color: red;">
+      <nav style="font-size: 18px;">
+        <img style="color: #efefef; padding: 5px 15px; float: left; height: 40px;" src="https://wwwstatic.lookercdn.com/logos/looker_all_white.svg"/>
+        <a style="color: #efefef; padding: 5px 15px; float: left; line-height: 40px; font-weight: bold;" href="#home">☰
+       Home</a>
+        <a style="color: #efefef; padding: 5px 15px; float: left; line-height: 40px;" href="#news">News</a>
+        <a style="color: #efefef; padding: 5px 15px; float: left; line-height: 40px;" href="#contact">Contact</a>
+        <a style="color: #efefef; padding: 5px 15px; float: left; line-height: 40px;" href="#about">About</a>
+      </nav>
+      </div>
+    row: 4
     col: 0
-    width: 19
+    width: 15
     height: 2
   - title: Number of Order Items by Category from different Traffic Sources
     name: Number of Order Items by Category from different Traffic Sources

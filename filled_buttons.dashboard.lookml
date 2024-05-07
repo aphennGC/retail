@@ -38,7 +38,6 @@
     col: 1
     width: 12
     height: 6
-
   - title: Number of Order Items by Category from different Traffic Sources
     name: Number of Order Items by Category from different Traffic Sources
     model: gen_ai
