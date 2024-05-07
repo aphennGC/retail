@@ -19,7 +19,7 @@
         <a style="padding: 5px; float: left; line-height: 40px;" href="#about">About</a>
       </nav>
       </div>
-    row: 2
+    row: 0
     col: 0
     width: 11
     height: 2

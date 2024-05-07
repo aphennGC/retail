@@ -30,9 +30,9 @@
       \    user-select: none;\n    padding: 10px;\n    margin: 5px;\n    font-size:\
       \ 1rem;\n    line-height: 1.5;\n    border-radius: 5px;\"\n    href=\"#\">\n\
       \    This is a button!\n</a>\n</div>"
-    row: 8
-    col: 1
-    width: 10
+    row: 0
+    col: 0
+    width: 15
     height: 4
   - title: Number of Order Items by Category from different Traffic Sources
     name: Number of Order Items by Category from different Traffic Sources

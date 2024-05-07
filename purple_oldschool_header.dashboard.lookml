@@ -20,7 +20,7 @@
         <a style="color: #efefef; padding: 5px 15px; float: left; line-height: 40px;" href="#about">About</a>
       </nav>
       </div>
-    row: 4
+    row: 0
     col: 0
     width: 15
     height: 2
