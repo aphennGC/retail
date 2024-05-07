@@ -1,19 +1,33 @@
-- dashboard: markup_test
-  title: Markup Test
+- dashboard: oval_header_example
+  title: oval_header
   layout: newspaper
   preferred_viewer: dashboards-next
   description: ''
   preferred_slug: iK8YJQvjPNZEXvuRlA0V3q
   elements:
-  - name: 'test'
+  - name: ''
     type: text
-    title_text: 'markup test'
-    subtitle_text: 'lets see how this works'
-    body_text: ''
-    rich_content_json: '{"format":"slate"}'
+    title_text: ''
+    subtitle_text: ''
+    body_text: "<div style=\"\n\theight: 44px; \n\tbackground-color: #fff; \n\tcolor:\
+      \ #5f6368; \n\tborder-radius: 44px; \n\tborder: solid 1px #5f6368; \n\tfont-family:\
+      \ Google Sans,Noto Sans,Noto Sans JP,Noto Sans KR,Noto Naskh Arabic,Noto Sans\
+      \ Thai,Noto Sans Hebrew,Noto Sans Bengali,sans-serif; \n\tpadding: 8px;\">\n\
+      <span style=\"\n\twidth: 28px;\n\theight: 28px; \n\tborder-radius: 32px; \n\t\
+      background-color: white; \n\tdisplay:table-cell; \n\tvertical-align:middle;\
+      \ \n\ttext-align:center; \n\tmargin-right: 12px; \n\tfloat: left;\">\n<img width=\"\
+      40px\" src=\"https://g3doc.corp.google.com/company/teams/csdata/logo_g3doc.png?cl=head\"\
+      />\n</span>\n\n<span style=\"\n\tpadding: 4px; \n\tfloat:left;\">\n\t<h1 style=\"\
+      margin-top:0;\n\t\tcolor: #5f6368; \n\tline-height: 1.2rem;\">\n\t\tThis is\
+      \ a header\n\t</h1>\n</span>\n<span style=\"padding: 4px; float:right;\">\n\t\
+      <a style=\"background-color: #fff; color: #5f6368; padding: 5px 10px;\" href=\"\
+      #\">Home</a>\n\t<a style=\"background-color: #fff; color: #5f6368; padding:\
+      \ 5px 10px;\" href=\"#\">Another link</a>\n\t<a style=\"background-color: #fff;\
+      \ color: #5f6368; padding: 5px 10px;\" href=\"#\">Third Link</a>\n</span>\n\
+      <div>\n"
     row: 0
     col: 0
-    width: 24
+    width: 18
     height: 2
   - title: Number of Order Items by Category from different Traffic Sources
     name: Number of Order Items by Category from different Traffic Sources
