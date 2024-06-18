@@ -18,7 +18,7 @@ view: test {
   }
 
   dimension: account {
-    type: number
+    type: string
     # hidden: yes
     sql: ${TABLE}.product_id ;;
   }
