@@ -23,27 +23,27 @@ view: worldline {
 
   dimension: account {
     type: number
-    sql: ${TABLE}.Account ;;
+    sql: ${TABLE}.product_id ;;
   }
 
   dimension_group: from_date {
     type: time
-    sql: ${TABLE}.From_date ;;
+    sql: ${TABLE}.created_at ;;
   }
 
   dimension_group: to_date {
     type: time
-    sql: ${TABLE}.To_date ;;
+    sql: ${TABLE}.delivered_at ;;
   }
 
   dimension: detail {
     type: number
-    sql: ${TABLE}.Detail ;;
+    sql: ${TABLE}.sale_price ;;
   }
 
   dimension: is_current {
     type: string
-    sql: ${TABLE}.IsCurrent ;;
+    sql: ${TABLE}.status ;;
   }
 
   dimension: current_on_date {
