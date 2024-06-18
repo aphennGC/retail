@@ -8,7 +8,7 @@ view: worldline {
               sale_price AS Detail,
               Status AS IsCurrent,
               CASE
-          WHEN To IS NULL OR To >= {% parameter selected_date %} -- Use parameter for date
+          WHEN To_date IS NULL OR To_date >= {% parameter selected_date %} -- Use parameter for date
           THEN TRUE
           ELSE FALSE
         END AS current_on_date
@@ -44,6 +44,11 @@ view: worldline {
   dimension: is_current {
     type: string
     sql: ${TABLE}.IsCurrent ;;
+  }
+
+  dimension: current_on_date {
+    type: string
+    sql: ${TABLE}.current_on_date ;;
   }
 
   # Optional: Parameter to control the filter date
