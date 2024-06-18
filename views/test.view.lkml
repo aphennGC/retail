@@ -60,10 +60,14 @@ view: test {
     default_value: "today"
   }
   dimension: current_on_date {
-    type: yesno
+    type: string
     sql:
-      (${to_date_date} IS NULL OR ${to_date_date} >= {% parameter selected_date %})
-      AND ${from_date_date} <= {% parameter selected_date %}
+       CASE
+        WHEN ${to_date_date} IS NULL OR ${to_date_date} >= {% parameter selected_date %}
+            AND ${from_date_date} <= {% parameter selected_date %}
+          THEN 'Yes'
+          ELSE 'No'
+      END
     ;;
   }
 }
