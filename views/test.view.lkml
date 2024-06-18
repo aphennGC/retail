@@ -55,7 +55,7 @@ view: test {
   }
 
   parameter: selected_date {
-    type: date
+    type: date_time
     label: "Select Date"
     default_value: "today"
   }
