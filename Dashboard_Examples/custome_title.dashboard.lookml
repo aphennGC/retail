@@ -6,7 +6,7 @@
   description: ''
   preferred_slug: iK8YJQvjPNZEXvuRlA0V3q
   elements:
-  - title: Number of Order Items by Category from different Traffic Sources
+  - title: "Number of Order Items by Category from different Traffic Sources {{ Brand._value | default: 'All' }}"
     name: Number of Order Items by Category from different Traffic Sources
     model: gen_ai
     explore: order_items
@@ -363,7 +363,7 @@
     col: 8
     width: 8
     height: 6
-  - title: "Order Items Count per Product Category: {{ products_brand_filter._value }}"
+  - title: Order Items Count per Product Category
     name: Order Items Count per Product Category
     model: gen_ai
     explore: order_items
