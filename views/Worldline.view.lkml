@@ -12,7 +12,7 @@ view: worldline {
           THEN TRUE
           ELSE FALSE
         END AS current_on_date
-              FROM 'lookercoredemoangiephenn.trial_dataset.order_items'
+              FROM order_items
               WHERE product_id =14235 ;;
   }
 
