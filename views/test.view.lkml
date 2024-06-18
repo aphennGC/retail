@@ -63,8 +63,8 @@ view: test {
     type: string
     sql:
        CASE
-        WHEN ${to_date_date} IS NULL OR ${to_date_date} >= {% parameter selected_date %}
-            AND ${from_date_date} <= {% parameter selected_date %}
+        WHEN ${to_date_raw} IS NULL OR ${to_date_raw} >= {% parameter selected_date %}
+            AND ${from_date_raw} <= {% parameter selected_date %}
           THEN 'Yes'
           ELSE 'No'
       END
