@@ -70,4 +70,13 @@ view: test {
       END
     ;;
   }
+ # dimension: rank{
+ #   type: number
+ #   sql: RANK() OVER (PARTITION BY ${detail} ORDER BY ${from_date_raw} DESC) ;;
+ # }
+
+  dimension: most_recent {
+    type: yesno
+    sql: ${from_date_raw} = (SELECT MAX(${from_date_raw}) FROM ${TABLE} WHERE ${detail} = _detail_);;
+  }
 }
