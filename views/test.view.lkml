@@ -65,18 +65,15 @@ view: test {
        CASE
         WHEN ${to_date_raw} IS NULL OR ${to_date_raw} >= {% parameter selected_date %}
             AND ${from_date_raw} <= {% parameter selected_date %}
+            AND ${entry_rank} = 1
           THEN 'Yes'
           ELSE 'No'
       END
     ;;
   }
- # dimension: rank{
- #   type: number
- #   sql: RANK() OVER (PARTITION BY ${detail} ORDER BY ${from_date_raw} DESC) ;;
- # }
-
-  dimension: most_recent {
-    type: yesno
-    sql: ${from_date_raw} = (SELECT MAX(${from_date_raw}) FROM ${TABLE} WHERE ${detail} = _detail_);;
+  dimension: entry_rank{
+  type: number
+  sql: RANK() OVER (PARTITION BY ${detail} ORDER BY ${from_date_raw} DESC) ;;
   }
+
 }
