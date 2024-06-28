@@ -59,21 +59,20 @@ view: test {
     label: "Select Date"
     default_value: "today"
   }
-  dimension: current_on_date {
+  dimension: check_current_on_date {
     type: string
     sql:
        CASE
         WHEN ${to_date_raw} IS NULL OR ${to_date_raw} >= {% parameter selected_date %}
             AND ${from_date_raw} <= {% parameter selected_date %}
-            AND ${entry_rank} = 1
+            AND
           THEN 'Yes'
           ELSE 'No'
       END
     ;;
   }
-  dimension: entry_rank{
+  dimension: entry_rank_by_from_date{
   type: number
-  sql: RANK() OVER (PARTITION BY ${account} ORDER BY ${from_date_raw} DESC) ;;
+  sql: RANK() OVER (PARTITION BY ${account} AND ${check_current_on_date}  ORDER BY ${from_date_raw} ASC) ;;
   }
-
 }
