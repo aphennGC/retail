@@ -53,6 +53,10 @@ explore:  events{
     sql_on: ${events.user_id} =${users.id} ;;
   }
 }
-explore: worldline {}
-explore: test {}
-explore: community_question {}
+explore: test {
+  join: current_accounts {
+    relationship: one_to_one
+    sql_on: ${test.account} = ${current_accounts.account}
+      AND ${test.from_date_raw} = ${current_accounts.most_recent_from_date} ;;
+  }
+}

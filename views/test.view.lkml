@@ -28,7 +28,7 @@ view: test {
     sql: ${TABLE}.sale_price ;;
   }
 
-  dimension: iscurrent {
+  dimension: status {
     type: string
     sql: ${TABLE}.status ;;
   }
@@ -69,9 +69,5 @@ view: test {
           ELSE 'No'
       END
     ;;
-  }
-  dimension: entry_rank_by_from_date{
-  type: number
-  sql: RANK() OVER (PARTITION BY ${account} AND ${check_current_on_date}  ORDER BY ${from_date_raw} ASC) ;;
   }
 }
