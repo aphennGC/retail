@@ -6,26 +6,25 @@ view: test {
     type: number
     sql: ${TABLE}.id ;;
   }
-  dimension_group: from_date {
+  ####your from_date
+  dimension_group: created_at {
     type: time
     timeframes: [raw, time, day_of_week, date, week, week_of_year, month, month_name, quarter, year]
     sql: ${TABLE}.created_at ;;
   }
-  dimension_group: to_date {
+
+  ####your to_date
+  dimension_group: delivered_at {
     type: time
     timeframes: [raw, time, date, week, month, quarter, year]
     sql: ${TABLE}.delivered_at ;;
   }
 
-  dimension: account {
+###your account
+  dimension: product_id {
     type: number
     # hidden: yes
     sql: ${TABLE}.product_id ;;
-  }
-
-  dimension: detail {
-    type: number
-    sql: ${TABLE}.sale_price ;;
   }
 
   dimension: status {
@@ -35,36 +34,23 @@ view: test {
 
   measure: count {
     type: count
-    drill_fields: [detail*]
   }
 
-
-  # ----- Sets of fields for drilling ------
-  set: detail {
-    fields: [
-      id,
-      users.last_name,
-      users.id,
-      users.first_name,
-      inventory_items.id,
-      inventory_items.product_name,
-      products.name,
-      products.id,
-      orders.order_id
-    ]
-  }
-
+#####the liquid parameter that enables you to insert the date you would like to check with if the account was current that date or not
   parameter: selected_date {
     type: date_time
     label: "Select Date"
     default_value: "today"
   }
+
+  #####an additional dimension that compares your inserted date (“selected_date”) with from and to dates for this account and returns yes if the account was current at this point or no if not
+
   dimension: check_current_on_date {
     type: string
     sql:
        CASE
-        WHEN ${to_date_raw} IS NULL OR ${to_date_raw} >= {% parameter selected_date %}
-            AND ${from_date_raw} <= {% parameter selected_date %}
+        WHEN ${delivered_at_raw} IS NULL OR ${delivered_at_raw} >= {% parameter selected_date %}
+            AND ${created_at_raw} <= {% parameter selected_date %}
           THEN 'Yes'
           ELSE 'No'
       END

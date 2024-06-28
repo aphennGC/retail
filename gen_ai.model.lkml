@@ -52,11 +52,15 @@ explore:  events{
     relationship: many_to_one
     sql_on: ${events.user_id} =${users.id} ;;
   }
-}
+  }
+
 explore: test {
-  join: current_accounts {
+  join: most_recent_current_accounts {
     relationship: one_to_one
-    sql_on: ${test.account} = ${current_accounts.account}
-      AND ${test.from_date_raw} = ${current_accounts.most_recent_from_date} ;;
+    sql_on: ${test.product_id} = ${most_recent_current_accounts.product_id}
+      AND ${test.created_at_date} = ${most_recent_current_accounts.most_recent_created_date} ;;
   }
 }
+ explore: check {
+   from: test
+ }
