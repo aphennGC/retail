@@ -65,7 +65,6 @@ view: test {
        CASE
         WHEN ${to_date_raw} IS NULL OR ${to_date_raw} >= {% parameter selected_date %}
             AND ${from_date_raw} <= {% parameter selected_date %}
-            AND
           THEN 'Yes'
           ELSE 'No'
       END
