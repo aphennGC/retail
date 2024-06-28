@@ -73,7 +73,7 @@ view: test {
   }
   dimension: entry_rank{
   type: number
-  sql: RANK() OVER (PARTITION BY ${detail} ORDER BY ${from_date_raw} DESC) ;;
+  sql: RANK() OVER (PARTITION BY ${account} ORDER BY ${from_date_raw} DESC) ;;
   }
 
 }
