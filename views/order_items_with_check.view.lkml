@@ -3,7 +3,6 @@ view: order_items_with_check {
   derived_table: {
     sql:
       SELECT
-        id,
         created_at,
         delivered_at,
         product_id,
