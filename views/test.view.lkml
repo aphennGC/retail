@@ -27,13 +27,10 @@ view: test {
     sql: ${TABLE}.product_id ;;
   }
 
+###your details
   dimension: status {
     type: string
     sql: ${TABLE}.status ;;
-  }
-
-  measure: count {
-    type: count
   }
 
 #####the liquid parameter that enables you to insert the date you would like to check with if the account was current that date or not
@@ -56,4 +53,4 @@ view: test {
       END
     ;;
   }
-}
+  }

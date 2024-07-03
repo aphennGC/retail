@@ -51,16 +51,21 @@ explore:  events{
   join: users {
     relationship: many_to_one
     sql_on: ${events.user_id} =${users.id} ;;
-  }
-  }
+  }}
 
-explore: test {
-  join: most_recent_current_accounts {
-    relationship: one_to_one
-    sql_on: ${test.product_id} = ${most_recent_current_accounts.product_id}
-      AND ${test.created_at_date} = ${most_recent_current_accounts.most_recent_created_date} ;;
+   explore: order_items_with_check {
+    join: latest_current_order_item {
+      type: left_outer
+      relationship: many_to_one
+      sql_on: ${order_items_with_check.product_id} = ${latest_current_order_item.product_id}
+      AND ${latest_current_order_item.created_at_raw} <= {% parameter order_items_with_check.selected_date %};;
+      }
+
+    # Always include the parameter from the "order_items_with_check" view
+    always_filter: {
+      filters: {
+        field: order_items_with_check.selected_date
+        value: "{% parameter order_items_with_check.selected_date %}"
+      }
+    }
   }
-}
- explore: check {
-   from: test
- }
