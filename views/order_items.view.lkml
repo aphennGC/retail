@@ -79,7 +79,7 @@ dimension: dynamic_time_frame {
   }
   dimension_group: created {
     type: time
-    timeframes: [raw, time, day_of_week, date, week, week_of_year, month, month_name, quarter, year]
+    timeframes: [raw, time, day_of_week, date, week, week_of_year, month, fiscal_month_num, month_name, quarter, year]
     sql: ${TABLE}.created_at ;;
   }
   dimension_group: delivered {
