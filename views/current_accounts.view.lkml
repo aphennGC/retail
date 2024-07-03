@@ -50,9 +50,9 @@ view: current_accounts {
 
   # Parameter remains the same:
   parameter: selected_month {
-    type: date_time
+    type: unquoted
     label: "Select Month"
-    default_value: "created_month"
+    default_value: "created_at_month"
   }
 
   # The "check_current_on_date" is now a regular dimension in the derived table
