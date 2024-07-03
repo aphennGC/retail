@@ -69,3 +69,21 @@ explore:  events{
       }
     }
   }
+
+  explore: current_accounts {
+    label: "Latest Current Account 🗓"
+    join: latest_current_account {
+      type: left_outer
+      relationship: many_to_one
+      sql_on: ${current_accounts.product_id} = ${latest_current_account.product_id}
+        AND ${latest_current_account.created_at_raw} <= {% parameter order_items_with_check.selected_month %};;
+    }
+
+    # Always include the parameter from the "order_items_with_check" view
+    always_filter: {
+      filters: {
+        field: current_accounts.selected_month
+        value: "{% parameter current_accounts.selected_month %}"
+      }
+    }
+  }
