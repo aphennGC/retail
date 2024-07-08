@@ -136,6 +136,15 @@ filter: country_filter {
     sql: CONCAT(${first_name},' ',${last_name}) ;;
   }
 
+  dimension: full_name_filter {
+    type:  string
+    sql: ${full_name} ;;
+    link: {
+      label: "Drill into Specific Customer"
+      url: "https://1a910b92-e236-4bcc-b1db-97bd51bba386.looker.app/dashboards/uznIl0mWHpGi6WufruhUdC?Customer+Name={{full_name_filter._value}}"
+    }
+  }
+
   dimension: country_flag{
     type: string
     sql:
