@@ -111,6 +111,80 @@ dimension: dynamic_time_frame {
     type: number
     sql: ${TABLE}.sale_price ;;
   }
+  dimension: sale_price_test {
+    type: number
+    sql: ${TABLE}.sale_price ;;
+    html:
+    {% if value < 2 and order_items.pathways._rendered_value == 'Recycling'%}
+        <span style="color: white; background-color: red;">{{ value }}
+    {% elsif value > 3 and order_items.pathways._rendered_value == 'Landfill' %}
+        <span style="color: black; background-color: lightgreen;">{{ value }}
+    {% else %}
+        <span>{{ value }}</span>
+    {% endif %}
+    ;;
+  }
+
+  # {% if value < 2 %}
+  #   <span style="color: white; background-color: red; padding: 2px;">{{ value }}▼</span>
+  #   {% elsif value > 3 %}
+  #   <span style="color: black; background-color: lightgreen; padding: 2px;">{{ value }}▲</span>
+  #   {% else %}
+  #   <span>{{ value }}</span>
+  #   {% endif %}
+
+  # {% if value < 2 %}
+  #   {{ value }}▼
+  #   {% elsif value > 3 %}
+  #   {{ value }}▲
+  #   {% else %}
+  #   {{ value }}
+  #   {% endif %}
+  #   ;;
+  # }
+
+  # dimension: test_html {
+  #   type: string
+  #   sql: 'Test HTML Rendering';;
+  #   html: <span style="color: red;">Test</span>;;
+  # }
+  # dimension: sale_price_test2 {
+  #   type: number
+  #   sql: ${TABLE}.sale_price ;;
+  #   html:
+  #   <span style="background-color: red; color: white;">{{ value }}▼</span>
+  #   ;;
+  # }
+
+  dimension: pathways {
+    type: string
+    sql: 'Recycling' ;;
+  }
+
+  # field: emission_material_disposal_pathway {
+  #   html: {% assign pathway = emission_material_disposal_pathway %}
+  #   {% if pathway == 'RECYCLING' %}
+  #   {% if value < 0 %}
+  #   <p style=\"color: white; background-color: red;\">▼ {{ value }}</p> {% else %}
+  #   <p style=\"color: black; background-color: lightgreen;\">▲ {{ value }}</p> {% endif %}
+  #   {% elsif pathway == 'LANDFILLING' %}
+  #   {% if value > 0 %}
+  #   <p style=\"color: white; background-color: red;\">▲ {{ value }}</p> {% else %}
+  #   <p style=\"color: black; background-color: lightgreen;\">▼ {{ value }}</p> {% endif %}
+  #   {% elsif pathway == 'INCINERATION_WITH_ENERGY_RECOVERY' %}
+  #   {% if value > 0 %}
+  #   <p style=\"color: black; background-color: lightgreen;\">▲ {{ value }}</p> {% else %}
+  #   <p style=\"color: white; background-color: red;\">▼ {{ value }}</p> {% endif %}
+  #   {% elsif pathway == 'INCINERATION' %}
+  #   {% if value > 0 %}
+  #   <p style=\"color: white; background-color: red;\">▲ {{ value }}</p> {% else %}
+  #   <p style=\"color: black; background-color: lightgreen;\">▼ {{ value }}</p> {% endif %}
+  #   {% else %}
+  #   <p style=\"color: white; background-color: grey;\">Pathway not matched: {{ value }}</p> {% endif %}
+  # }
+
+
+
   dimension_group: shipped {
     type: time
     timeframes: [raw, time, date, week, month, quarter, year]

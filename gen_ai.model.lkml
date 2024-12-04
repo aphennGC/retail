@@ -7,6 +7,13 @@ include: "/**/*.dashboard.lookml"   # include a LookML dashboard called my_dashb
 # # Select the views that should be a part of this model,
 # # and define the joins that connect them together.
 #
+
+
+access_grant: can_view_inventory_data {
+  user_attribute: department
+  allowed_values: [ "Inventory"]
+}
+
  explore: order_items {
   label: "Retail 🛍"
 #sql_always_where: not ${inventory_items.is_sold} ;;
@@ -21,7 +28,7 @@ include: "/**/*.dashboard.lookml"   # include a LookML dashboard called my_dashb
   #unless: [created_date]
 #}
 
-access_filter: {
+access_filter: { ####userangiephenn@angiephenn.altostrat.com
 field: users.country
 user_attribute: country
 }
