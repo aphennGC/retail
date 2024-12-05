@@ -100,6 +100,7 @@ view: inventory_items {
   ###CUSTOM MEASURES###
   measure: total_inventory_cost {
     label: "Total Inventory Costs"
+    required_access_grants: [can_view_inventory_data]
     type: sum
     sql: ${cost} ;;
     value_format: "$#,##0.00"
